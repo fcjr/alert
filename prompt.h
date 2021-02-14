@@ -4,7 +4,7 @@
 #import <stdlib.h>
 #import <stdbool.h>
 
-void simple(char *title, char *message);
+void message(char *title, char *message);
 
 void error(char *title, char *message);
 

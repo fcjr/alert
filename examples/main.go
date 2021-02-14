@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	prompt.Simple("Example Prompt", "Example Message")
-	prompt.Error("Example Error", "Example Error Message")
+	prompt.Message("Example Message", "Example Message Text")
+	prompt.Error("Example Error", "Example Error Text")
 	resp := prompt.Question("Example Question", "Yes or No?", "Yes", "No")
 	fmt.Printf("Response: %t\n", resp)
 }

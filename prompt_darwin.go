@@ -11,12 +11,12 @@ import (
 	"unsafe"
 )
 
-func Simple(title, message string) {
+func Message(title, message string) {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))
 	cMessage := C.CString(message)
 	defer C.free(unsafe.Pointer(cMessage))
-	C.simple(cTitle, cMessage)
+	C.message(cTitle, cMessage)
 }
 
 func Error(title, message string) {
