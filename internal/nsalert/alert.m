@@ -1,7 +1,7 @@
 #import <stdlib.h>
 #import <AppKit/NSAlert.h>
 
-void message(char *title, char *message) {
+void info(char *title, char *message) {
 	NSString* titleString = [NSString stringWithCString:title encoding:[NSString defaultCStringEncoding]];
 	NSString* messageString = [NSString stringWithCString:message encoding:[NSString defaultCStringEncoding]];
 

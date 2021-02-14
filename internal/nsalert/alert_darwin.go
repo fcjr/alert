@@ -12,12 +12,12 @@ import (
 )
 
 // Message displays a basic alert with an "OK" button
-func Message(title, message string) error {
+func Info(title, message string) error {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))
 	cMessage := C.CString(message)
 	defer C.free(unsafe.Pointer(cMessage))
-	C.message(cTitle, cMessage)
+	C.info(cTitle, cMessage)
 	return nil
 }
 

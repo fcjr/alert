@@ -7,5 +7,5 @@
 //
 // import "github.com/fcjr/alert"
 //
-// alert.Message("Example Message", "Example Message Text")
+// alert.Info("Example Message", "Example Message Text")
 package alert //import "github.com/fcjr/alert"

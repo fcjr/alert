@@ -19,7 +19,7 @@ A Simple cross-platform alert library for go.
 ```go
 import "github.com/fcjr/alert"
 
-alert.Message("Example Message", "Example Message Text")
+alert.Info("Example Message", "Example Message Text")
 ```
 
 ## Progress
