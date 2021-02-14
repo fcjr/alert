@@ -1,5 +1,5 @@
-#ifndef PROMPT
-#define PROMPT
+#ifndef ALERT_H
+#define ALERT_H
 
 #import <stdlib.h>
 #import <stdbool.h>
@@ -10,4 +10,4 @@ void error(char *title, char *message);
 
 bool question(char *title, char *message, char *defaultButton, char *alternateButton);
 
-#endif /* !PROMPT */
+#endif /* !ALERT_H */

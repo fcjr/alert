@@ -1,3 +1,3 @@
-module github.com/fcjr/prompt
+module github.com/fcjr/alert
 
 go 1.14

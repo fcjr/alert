@@ -1,10 +1,10 @@
-package prompt
+package alert
 
 /*
 #cgo CFLAGS: -x objective-c
 #cgo LDFLAGS: -framework AppKit
 
-#import "prompt.h"
+#import "alert.h"
 */
 import "C"
 import (

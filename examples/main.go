@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/fcjr/prompt"
+	"github.com/fcjr/alert"
 )
 
 func main() {
-	prompt.Message("Example Message", "Example Message Text")
-	prompt.Error("Example Error", "Example Error Text")
-	resp := prompt.Question("Example Question", "Yes or No?", "Yes", "No")
+	alert.Message("Example Message", "Example Message Text")
+	alert.Error("Example Error", "Example Error Text")
+	resp := alert.Question("Example Question", "Yes or No?", "Yes", "No")
 	fmt.Printf("Response: %t\n", resp)
 }
