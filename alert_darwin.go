@@ -11,6 +11,7 @@ import (
 	"unsafe"
 )
 
+// Message displays a basic alert with an "OK" button
 func Message(title, message string) {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))
@@ -19,6 +20,7 @@ func Message(title, message string) {
 	C.message(cTitle, cMessage)
 }
 
+// Error displays a basic error alert with an "OK" button
 func Error(title, message string) {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))
@@ -27,6 +29,9 @@ func Error(title, message string) {
 	C.error(cTitle, cMessage)
 }
 
+// Question displays an alert with two buttons
+//
+// returns true iff the the defaultButton was pressed
 func Question(title, message, defaultButton, alternateButton string) bool {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))
