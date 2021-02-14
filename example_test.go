@@ -6,8 +6,8 @@ import (
 	"github.com/fcjr/alert"
 )
 
-func ExampleMessage() {
-	_ = alert.Message("Example Message", "Example Message Text")
+func ExampleInfo() {
+	_ = alert.Info("Example Message", "Example Message Text")
 }
 func ExampleError() {
 	_ = alert.Error("Example Error", "Example Error Text")

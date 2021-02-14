@@ -6,8 +6,8 @@ import (
 	"github.com/fcjr/alert/internal/user32"
 )
 
-// Message displays a basic alert with an "OK" button
-func Message(title, message string) error {
+// Info displays a basic alert with an "OK" button
+func Info(title, message string) error {
 	var flags uint
 	flags = user32.MB_ICONINFORMATION | user32.MB_OK
 	_, err := user32.MessageBoxW(user32.NULL, title, message, flags)

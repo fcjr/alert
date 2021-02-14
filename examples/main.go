@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	if err := alert.Message("Example Message", "Example Message Text"); err != nil {
+	if err := alert.Info("Example Message", "Example Message Text"); err != nil {
 		log.Fatal(err)
 	}
 	if err := alert.Error("Example Error", "Example Error Text"); err != nil {
