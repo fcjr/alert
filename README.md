@@ -25,7 +25,7 @@ alert.Info("Example Message", "Example Message Text")
 ## Progress
 
 * [X] Basic mac
-* [ ] Basic windows
+* [X] Basic windows
 * [ ] Basic linux
 * [ ] Advanced mac (Input, Scroll UI, etc)
 * [ ] Advanced windows

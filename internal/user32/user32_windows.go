@@ -1,17 +1,47 @@
 package user32
 
 import (
+	"syscall"
 	"unsafe"
 
 	"golang.org/x/sys/windows"
 )
 
+var (
+	user32                    = windows.NewLazyDLL("user32.dll")
+	user32MessageBoxW         = user32.NewProc("MessageBoxW")
+	user32CallNexHookEx       = user32.NewProc("CallNextHookEx")
+	user32UnhookWindowsHookEx = user32.NewProc("UnhookWindowsHookEx")
+	user32SetWindowsHookEx    = user32.NewProc("SetWindowsHookExW")
+	user32SetDlgItemText      = user32.NewProc("SetDlgItemTextW")
+)
+
 const ERROR_SUCESS = 0
 const NULL = 0
+const HCBT_ACTIVATE = 5
+const WH_CBT = 5
 
-var (
-	user32            = windows.NewLazyDLL("user32.dll")
-	user32MessageBoxW = user32.NewProc("MessageBoxW")
+type (
+	DWORD     uint32
+	WPARAM    uintptr
+	LPARAM    uintptr
+	LRESULT   uintptr
+	HINSTANCE windows.Handle
+	HHOOK     windows.Handle
+	HWND      windows.Handle
+	HOOKPROC  func(int, WPARAM, LPARAM) LRESULT
+)
+
+const (
+	// Dialog button ids
+
+	ID_BUT_OK     = 1
+	ID_BUT_CANCEL = 2
+	ID_BUT_ABORT  = 3
+	ID_BUT_RETRY  = 4
+	ID_BUT_IGNORE = 5
+	ID_BUT_YES    = 6
+	ID_BUT_NO     = 7
 )
 
 const (
@@ -88,4 +118,42 @@ func MessageBoxW(hwnd uintptr, text, caption string, flags uint) (int, error) {
 		uintptr(flags),
 	)
 	return int(r1), nil
+}
+
+func SetDlgItemText(hDlg WPARAM, nIDDlgItem int, lpString string) bool {
+	strPntr, _ := windows.UTF16PtrFromString(lpString)
+
+	ret, _, _ := user32SetDlgItemText.Call(
+		uintptr(hDlg),
+		uintptr(nIDDlgItem),
+		uintptr(unsafe.Pointer(strPntr)),
+	)
+	return ret != 0
+}
+
+func SetWindowsHookEx(idHook int, lpfn HOOKPROC, hMod HINSTANCE, dwThreadId DWORD) HHOOK {
+	ret, _, _ := user32SetWindowsHookEx.Call(
+		uintptr(idHook),
+		uintptr(syscall.NewCallback(lpfn)),
+		uintptr(hMod),
+		uintptr(dwThreadId),
+	)
+	return HHOOK(ret)
+}
+
+func CallNextHookEx(hhk HHOOK, nCode int, wParam WPARAM, lParam LPARAM) LRESULT {
+	ret, _, _ := user32CallNexHookEx.Call(
+		uintptr(hhk),
+		uintptr(nCode),
+		uintptr(wParam),
+		uintptr(lParam),
+	)
+	return LRESULT(ret)
+}
+
+func UnhookWindowsHookEx(hhk HHOOK) bool {
+	ret, _, _ := user32UnhookWindowsHookEx.Call(
+		uintptr(hhk),
+	)
+	return ret != 0
 }

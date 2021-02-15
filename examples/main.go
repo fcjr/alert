@@ -14,7 +14,7 @@ func main() {
 	if err := alert.Error("Example Error", "Example Error Text"); err != nil {
 		log.Fatal(err)
 	}
-	resp, err := alert.Question("Example Question", "Yes or No?", "Yes", "No")
+	resp, err := alert.Question("Example Question", "Default or Alternate?", "Default", "Alternate")
 	if err != nil {
 		log.Fatal(err)
 	}
