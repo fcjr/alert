@@ -52,5 +52,5 @@ func Question(title, message, defaultButton, alternateButton string) (bool, erro
 	if err != nil {
 		return false, err
 	}
-	return press == 6, nil
+	return press == user32.ID_BUT_YES, nil
 }
