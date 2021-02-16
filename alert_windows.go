@@ -8,7 +8,7 @@ import (
 // Info displays a basic alert with an "OK" button
 func Info(title, message string) error {
 	var flags uint = user32.MB_ICONINFORMATION | user32.MB_OK
-	_, err := user32.MessageBoxW(user32.NULL, title, message, flags)
+	_, err := user32.MessageBoxW(user32.NULL, message, title, flags)
 	if err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func Info(title, message string) error {
 // Error displays a basic error alert with an "OK" button
 func Error(title, message string) error {
 	var flags uint = user32.MB_ICONERROR | user32.MB_OK
-	_, err := user32.MessageBoxW(user32.NULL, title, message, flags)
+	_, err := user32.MessageBoxW(user32.NULL, message, title, flags)
 	if err != nil {
 		return err
 	}
@@ -48,7 +48,7 @@ func Question(title, message, defaultButton, alternateButton string) (bool, erro
 	defer user32.UnhookWindowsHookEx(hook)
 
 	var flags uint = user32.MB_ICONINFORMATION | user32.MB_YESNO | user32.MB_DEFBUTTON1
-	press, err := user32.MessageBoxW(user32.NULL, title, message, flags)
+	press, err := user32.MessageBoxW(user32.NULL, message, title, flags)
 	if err != nil {
 		return false, err
 	}
