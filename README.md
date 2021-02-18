@@ -32,7 +32,7 @@ alert.Info("Example Message", "Example Message Text")
 * [ ] Advanced linux
 
 [doc-img]: https://img.shields.io/static/v1?label=godoc&message=reference&color=blue
-[doc]: https://pkg.go.dev/github.com/fcjr/alert?tab=doc
+[doc]: https://pkg.go.dev/github.com/fcjr/alert?GOOS=windows#section-documentation
 [report-card-img]: https://goreportcard.com/badge/github.com/fcjr/alert
 [report-card]: https://goreportcard.com/report/github.com/fcjr/alert
 [golangci-lint-img]: https://github.com/fcjr/alert/workflows/golangci-lint/badge.svg
