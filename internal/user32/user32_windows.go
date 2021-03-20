@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	user32                    = windows.NewLazyDLL("user32.dll")
+	user32                    = windows.NewLazySystemDLL("user32.dll")
 	user32MessageBoxW         = user32.NewProc("MessageBoxW")
 	user32CallNexHookEx       = user32.NewProc("CallNextHookEx")
 	user32UnhookWindowsHookEx = user32.NewProc("UnhookWindowsHookEx")
