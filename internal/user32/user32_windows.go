@@ -16,7 +16,7 @@ var (
 	user32SetDlgItemText      = user32.NewProc("SetDlgItemTextW")
 )
 
-const ERROR_SUCESS = 0
+const ERROR_SUCCESS = 0
 const NULL = 0
 const HCBT_ACTIVATE = 5
 const WH_CBT = 5
