@@ -11,7 +11,7 @@ import (
 	"unsafe"
 )
 
-// Message displays a basic alert with an "OK" button
+// Info displays a basic alert with an "OK" button
 func Info(title, message string) error {
 	cTitle := C.CString(title)
 	defer C.free(unsafe.Pointer(cTitle))

@@ -2,8 +2,8 @@
 #import <AppKit/NSAlert.h>
 
 void alert(char *title, char *message, NSAlertStyle style) {
-	NSString* titleString = [NSString stringWithCString:title encoding:[NSString defaultCStringEncoding]];
-	NSString* messageString = [NSString stringWithCString:message encoding:[NSString defaultCStringEncoding]];
+	NSString* titleString = [NSString stringWithCString:title encoding:NSUTF8StringEncoding];
+	NSString* messageString = [NSString stringWithCString:message encoding:NSUTF8StringEncoding];
 	if([NSThread isMainThread]) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		alert.messageText = titleString;
@@ -40,10 +40,10 @@ void error(char *title, char *message) {
 }
 
 bool question(char *title, char *message, char *defaultButton, char*alternateButton) {
-	NSString* titleString = [NSString stringWithCString:title encoding:[NSString defaultCStringEncoding]];
-	NSString* messageString = [NSString stringWithCString:message encoding:[NSString defaultCStringEncoding]];
-	NSString* defaultButtonString = [NSString stringWithCString:defaultButton encoding:[NSString defaultCStringEncoding]];
-	NSString* alternateButtonString = [NSString stringWithCString:alternateButton encoding:[NSString defaultCStringEncoding]];
+	NSString* titleString = [NSString stringWithCString:title encoding:NSUTF8StringEncoding];
+	NSString* messageString = [NSString stringWithCString:message encoding:NSUTF8StringEncoding];
+	NSString* defaultButtonString = [NSString stringWithCString:defaultButton encoding:NSUTF8StringEncoding];
+	NSString* alternateButtonString = [NSString stringWithCString:alternateButton encoding:NSUTF8StringEncoding];
 
 	__block NSInteger button;
 	if([NSThread isMainThread]) {
